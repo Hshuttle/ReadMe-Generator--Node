@@ -42,7 +42,7 @@ const questions = [
   {
     type: "input",
     message: "Please enter test instructions for your application",
-    name: "test-instruction",
+    name: "testinstruction",
   },
   {
     type: "list",
@@ -65,10 +65,37 @@ inquirer.prompt(questions).then((answers) => {
   fs.writeFile(FILENAME, JSON.stringify(answers), (err) => {
     err ? console.error(err) : console.log("Successfully wrote to file");
   });
-});
+  // TODO: Create a function to write README file
+  // function writeToFile(fileName, data) {}
+  let generateREADME = `# ${answers.title}
+${answers.description}
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+## Table of Contents
+
+<ul>
+<li><a href="#install">Installation Instructions</a></li>
+<li><a href="#usage">Usage Information</a></li>
+<li><a href="#contribution">Contribution Guidelines</a></li>
+<li><a href="#test-instr">Test Instructions</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#contactme">Contact Me</a></li>
+</ul>
+<h2 id="#install">Installation Instructions</h2>
+${answers.installation}
+<h2 id="usage">Usage Information</h2>
+${answers.usage}
+<h2 id="contribution">Contribution Guidelines</h2>
+${answers.contribution}
+<h2 id="test-instr">Test Instructions</h2>
+${answers.testinstruction}
+<h2 id="license">License</h2>
+${answers.license}
+<h2 id="contactme">Contact Me</h2>
+For any additional questions please reach out to me by email at: ${answers.email}</br>
+Feel free to check out my other repositories on github! My username is ${answers.username}</br>
+Click HERE to be routed to my github account`;
+  fs.writeFile(generateREADME + "_README.md");
+});
 
 // TODO: Create a function to initialize app
 // function init() {}
