@@ -13,8 +13,10 @@
 <li><a href="#contactme">Contact Me</a></li>
 </ul>
 
-<h2 id="#install">Installation Instructions</h2>
+## Installation Instructions
+
 !!!install!!!
+
 <h2 id="usage">Usage Information</h2>
 !!!usage!!!
 <h2 id="contribution">Contribution Guidelines</h2>
